@@ -1,0 +1,8 @@
+build/
+*.vcd
+*.fst
+*.vvp
+obj_*/
+*.o
+*.elf
+*.bin
