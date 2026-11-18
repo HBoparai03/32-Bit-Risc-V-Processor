@@ -8,7 +8,8 @@
 #   make clean
 
 TOP     ?= tb_counter
-RTL     := $(wildcard rtl/*.sv)
+# Packages (*_pkg.sv) must be compiled before the modules that import them.
+RTL     := $(wildcard rtl/*_pkg.sv) $(filter-out %_pkg.sv,$(wildcard rtl/*.sv))
 TB      := tb/$(TOP).sv
 SIM_DIR := build
 # GNU make (used by Verilator) can't build in paths containing spaces, so
